@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalDeliv - Start Now</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: #27ae60;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #2ecc71;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Left Panel (Requests, My Requests, Trips) */
+        .left-panel {
+            width: 25%;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #ddd;
+            height: calc(100vh - 80px); /* Full height minus the height of the header */
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .panel-item {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .panel-item:hover {
+            background-color: #2ecc71;
+        }
+
+        .panel-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .panel-content table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .panel-content table, th, td {
+            border: 1px solid #ccc;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .panel-content th {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        /* Right Panel (Map) */
+        #map {
+            width: 75%;
+            height: calc(100vh - 80px); /* Full height minus the height of the header */
+            position: relative; /* Position relative for positioning zoom button */
+        }
+
+        /* Zoom Button Style */
+        .zoom-button {
+            background-color: #27ae60;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            z-index: 1000; /* Ensure button is above the map */
+        }
+
+        .zoom-button:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>LocalDeliv</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="join-team.html">Join the Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="panel-header">
+                <div class="panel-item" onclick="toggleContent('requestsContent')">Requests</div>
+                <div class="panel-item" onclick="toggleContent('myRequestsContent')">My Requests</div>
+                <div class="panel-item" onclick="toggleContent('tripsContent')">Trips</div>
+            </div>
+
+            <div id="requestsContent" class="panel-content">
+                <h2>Requests</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Pickup</th>
+                            <th>Drop-off</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Location A</td>
+                            <td>Location B</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Location C</td>
+                            <td>Location D</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="myRequestsContent" class="panel-content">
+                <h2>My Requests</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="tripsContent" class="panel-content">
+                <h2>Trips</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Trip ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ongoing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="map"></div>
+        <!-- Zoom to Current Location Button -->
+        <button class="zoom-button" id="zoomButton">🔍</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map and set the initial view to a default location
+        const map = L.map('map').setView([20.5937, 78.9629], 5); // Default view centered on India
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        let userLocation = null; // Store user's location
+
+        // Function to handle success when location is found
+        function onLocationFound(e) {
+            const radius = e.accuracy / 2;
+            userLocation = e.latlng; // Save user's location
+
+            // Place a marker at the user's location
+            const userMarker = L.marker(e.latlng).addTo(map);
+
+            // Show a popup with accuracy information
+            userMarker.bindPopup("You are within " + Math.round(radius) + " meters from this point").openPopup();
+
+            // Draw a circle showing accuracy radius
+            L.circle(e.latlng, radius).addTo(map);
+
+            // Pan the map to the user's location
+            map.setView(e.latlng, 13);
+        }
+
+        // Function to handle error when location isn't found
+        function onLocationError(e) {
+            alert("Unable to retrieve your location: " + e.message);
+        }
+
+        // Request the user's location with high accuracy
+        map.on('locationfound', onLocationFound);
+        map.on('locationerror', onLocationError);
+        map.locate({
+            setView: true,
+            maxZoom: 16,
+            enableHighAccuracy: true,  // Enable high accuracy mode
+            timeout: 10000,            // Set a timeout of 10 seconds to wait for accurate location
+            maximumAge: 0              // Prevent using cached location
+        });
+
+        // Zoom to current location button functionality
+        document.getElementById('zoomButton').addEventListener('click', function () {
+            if (userLocation) {
+                map.setView(userLocation, 16); // Zoom to user's current location
+            } else {
+                alert("Location not found yet. Please wait.");
+            }
+        });
+
+        // Function to toggle content visibility
+        function toggleContent(contentId) {
+            const contents = document.querySelectorAll('.panel-content');
+            contents.forEach(content => {
+                if (content.id === contentId) {
+                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        }
+
+        // Initial setup
+        document.getElementById('requestsContent').style.display = 'none';
+        document.getElementById('myRequestsContent').style.display = 'none';
+        document.getElementById('tripsContent').style.display = 'none';
+    </script>
+</body>
+</html>
