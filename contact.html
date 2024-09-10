@@ -6,6 +6,42 @@
     <title>Contact - LocalDeliv</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Gradient Background */
+        body {
+            background: linear-gradient(to bottom, #a2d9a2, #27ae60); /* Gradient from light green to dark green */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Content Section Styles */
         .content {
             background-color: #eaf5e8; /* Light green background for content sections */
             padding: 60px 20px;
@@ -31,11 +67,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-form input,
         .contact-form textarea {
-            width: calc(100% - 40px);
+            width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ddd;
@@ -60,19 +98,44 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>LocalDeliv</h1>
+        <a href="home.html">
+            <h1>LocalDeliv</h1>
+        </a>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="how-it-works.html">How It Works</a></li>
-                <li><a href="join-the-team.html">Join the Team</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="login.html">Log In</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Main Content -->
     <section class="content">
         <h2>Contact Us</h2>
-        <p>If you have any questions, feedback, or inquiries, feel free to reach out to us. We're here to help
+        <p>If you have any questions, feel free to send us an inquiry using the form below.</p>
+
+        <form class="contact-form" action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Submit Inquiry</button>
+        </form>
+    </section>
+</body>
+</html>

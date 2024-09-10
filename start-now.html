@@ -13,6 +13,8 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            background: linear-gradient(to bottom, #eaf5e8, #27ae60); /* Gradient background */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
         }
 
         /* Header */
@@ -38,6 +40,10 @@
 
         nav li {
             margin-left: 20px;
+        }
+
+        header a {
+            text-decoration: none; /* Removes underline */
         }
 
         nav a {
@@ -147,12 +153,13 @@
 
     <!-- Navigation Bar -->
     <header>
-        <h1>LocalDeliv</h1>
+        <a href="home.html">
+            <h1>LocalDeliv</h1>
+        </a>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="how-it-works.html">How It Works</a></li>
-                <li><a href="join-team.html">Join the Team</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="login.html">Log In</a></li>
             </ul>
@@ -179,14 +186,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Location A</td>
-                            <td>Location B</td>
+                            <!-- Request data will go here -->
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td>Location C</td>
-                            <td>Location D</td>
+                            <!-- Request data will go here -->
                         </tr>
                     </tbody>
                 </table>
@@ -203,8 +206,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Pending</td>
+                            <!-- Request data will go here -->
                         </tr>
                     </tbody>
                 </table>
@@ -221,8 +223,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Ongoing</td>
+                            <!-- Trip data will go here -->
                         </tr>
                     </tbody>
                 </table>

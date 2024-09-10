@@ -6,47 +6,140 @@
     <title>How It Works - LocalDeliv</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Gradient Background */
+        body {
+            background: linear-gradient(to bottom, #a2d9a2, #27ae60); /* Gradient from light green to dark green */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header a {
+            text-decoration: none; /* Removes underline */
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Content Section Styles */
         .content {
             background-color: #eaf5e8; /* Light green background for content sections */
             padding: 60px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
+            max-width: 900px;
         }
 
         .content h2 {
             color: #27ae60; /* Green color for headings */
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .content p {
             font-size: 18px;
             line-height: 1.6;
             color: #333;
+            text-align: center;
         }
 
         .content ol {
             text-align: left;
             margin: 20px auto;
-            max-width: 600px;
+            max-width: 800px;
             font-size: 18px;
+            padding-left: 20px;
         }
 
         .content ol li {
             margin-bottom: 15px;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .section img {
+            max-width: 80%;
+        }
+
+        .section-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #27ae60;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>LocalDeliv</h1>
+        <a href="home.html">
+            <h1>LocalDeliv</h1>
+        </a>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="how-it-works.html">How It Works</a></li>
-                <li><a href="join-the-team.html">Join the Team</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="login.html">Log In</a></li>
             </ul>
@@ -55,14 +148,55 @@
 
     <section class="content">
         <h2>How It Works</h2>
-        <p>LocalDeliv simplifies local deliveries by connecting communities with a seamless, eco-friendly delivery system. Here's how it works:</p>
-        <ol>
-            <li><strong>Sign Up</strong> – Join our platform as a driver or a local business.</li>
-            <li><strong>Place Orders</strong> – Local businesses receive orders through our app.</li>
-            <li><strong>Get Matched</strong> – Drivers are matched with nearby delivery requests.</li>
-            <li><strong>Deliver Locally</strong> – Drivers pick up and deliver orders in the community.</li>
-            <li><strong>Track in Real-Time</strong> – Both businesses and customers can track deliveries live.</li>
-        </ol>
+        <p>LocalDeliv is a community-driven delivery app that connects local businesses and individuals to delivery drivers from the same community, fostering an eco-friendly and efficient delivery network. Here's how it works:</p>
+
+        <div class="section">
+            <div class="section-content">
+                <h3>Users</h3>
+                <p>The platform serves three primary groups:</p>
+                <ol>
+                    <li><strong>Senders (Customers)</strong> – Individuals or businesses who need items delivered, such as groceries, food, or packages.</li>
+                    <li><strong>Drivers (Delivery Partners)</strong> – Local community members who perform deliveries. They use their personal vehicles or other modes of transportation and operate as independent contractors.</li>
+                    <li><strong>Admin (Platform)</strong> – Platform administrators ensure smooth operation, handle payment processing, and resolve disputes.</li>
+                </ol>
+            </div>
+            <div class="image-container">
+                <img src="give-online-food-delivery-app-with-delivery-boy.jpg" alt="Overview of LocalDeliv">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <h3>App Structure</h3>
+                <ol>
+                    <li><strong>Request Interface</strong> – Customers specify the details of the delivery, including pickup and drop-off locations, time, and any special instructions.</li>
+                    <li><strong>Matching System</strong> – The app matches delivery requests with nearby available drivers using an algorithm.</li>
+                    <li><strong>Tracking and Notifications</strong> – Customers can track their delivery in real time and communicate with the driver.</li>
+                    <li><strong>Payment Processing</strong> – Payments are handled directly through the app, with fees and tips based on distance, time, or complexity.</li>
+                    <li><strong>Rating and Feedback</strong> – Both customers and drivers can rate their experience, helping maintain quality and accountability on the platform.</li>
+                </ol>
+            </div>
+            <div class="image-container">
+                <img src="man-8082965_640.webp" alt="App Structure">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <h3>Operational Workflow</h3>
+                <ol>
+                    <li><strong>Customer Places an Order</strong> – A customer initiates a request by selecting the items to be delivered, providing pickup and delivery addresses, and adding any special instructions.</li>
+                    <li><strong>Driver Accepts the Request</strong> – Available drivers receive the request and can choose to accept the delivery. The app may assign drivers based on proximity or rating.</li>
+                    <li><strong>Pick-Up and Delivery</strong> – Once accepted, the driver picks up the item(s) and delivers them to the specified location.</li>
+                    <li><strong>Real-Time Tracking</strong> – Customers track the driver’s progress via GPS for transparency and convenience.</li>
+                    <li><strong>Completion and Payment</strong> – After successful delivery, the payment is processed automatically. Drivers are compensated either per delivery or through an agreed-upon structure.</li>
+                    <li><strong>Feedback Loop</strong> – Both the customer and the driver provide feedback, helping improve the service for future deliveries.</li>
+                </ol>
+            </div>
+            <div class="image-container">
+                <img src="pngtree-big-isolated-motorcycle-vector-colorful-icons-flat-illustrations-of-delivery-by-png-image_7255.png" alt="Operational Workflow">
+            </div>
+        </div>
     </section>
 
     <footer>

@@ -20,3 +20,7 @@ function handleScroll() {
 
 window.addEventListener('scroll', debounce(handleScroll, 100));
 handleScroll(); // Initial check
+window.onload = function() {
+  const typewriterText = document.querySelector('.typewriter-text');
+  typewriterText.classList.add('typing-effect');
+};
