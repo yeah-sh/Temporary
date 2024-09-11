@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Shop - LocalDeliv</title>
+    <link rel="stylesheet" href="register-shop-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="home.html">
+            <h1>LocalDeliv</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="register-shop.html">Register Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Register Shop Form -->
+    <section class="register-shop">
+        <h2>Register Your Shop</h2>
+        <form action="submit-shop-registration.php" method="post">
+            <div class="input-group">
+                <label for="shop-name">Shop Name:</label>
+                <input type="text" id="shop-name" name="shop_name" required>
+            </div>
+            <div class="input-group">
+                <label for="owner-name">Owner Name:</label>
+                <input type="text" id="owner-name" name="owner_name" required>
+            </div>
+            <div class="input-group">
+                <label for="contact">Contact Number:</label>
+                <input type="text" id="contact" name="contact" required>
+            </div>
+            <div class="input-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn">Register Shop</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 LocalDeliv. All rights reserved.</p>
+    </footer>
+</body>
+</html>
